@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollbar Editor</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #1e1e2f;
+      color: #e4e4e7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    .editor {
+      flex: 1;
+      background-color: #2a2a40;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .preview-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .preview {
+      flex: 1;
+      background-color: #2a2a40;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    textarea {
+      width: 100%;
+      height: 100%;
+      resize: none;
+      border: 1px solid #44475a;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #1e1e2f;
+      color: #f8f8f2;
+      font-family: monospace;
+      font-size: 0.9rem;
+      overflow-y: scroll;
+    }
+
+    textarea::-webkit-scrollbar {
+      width: 14px;
+    }
+
+    textarea::-webkit-scrollbar-track {
+      background: #2a2a40;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+      background: #888888;
+      border-radius: 1px;
+      border: 0 solid transparent;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .control {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="color"] {
+      appearance: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: #ffffff;
+      transition: box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+      border: none;
+      border-radius: 50%;
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+      border-radius: 50%;
+    }
+
+    input[type="color"]:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    input[type="color"]:focus {
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+    }
+
+    .number-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .number-input button {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      border-radius: 50%;
+      background-color: #44475a;
+      color: #f8f8f2;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .number-input button:hover {
+      background-color: #575a6d;
+      transform: scale(1.1);
+    }
+
+    .number-input span {
+      width: 50px;
+      text-align: center;
+      font-size: 0.9rem;
+      background-color: #2a2a40;
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: 1px solid #44475a;
+      color: #f8f8f2;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:disabled {
+      background-color: #44475a;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="editor">
+      <h1>Editar Scrollbar</h1>
+      <div class="controls">
+        <div class="control">
+          <label>Thumb Color:</label>
+          <input type="color" id="thumbColor" value="#888888">
+        </div>
+        <div class="control">
+          <label>Track Color:</label>
+          <input type="color" id="trackColor" value="#f0f0f0">
+        </div>
+        <div class="control">
+          <label>Scrollbar Width:</label>
+          <div class="number-input">
+            <button onclick="changeNumber('scrollbarWidth', -1)">-</button>
+            <span id="scrollbarWidth">14</span>
+            <button onclick="changeNumber('scrollbarWidth', 1)">+</button>
+          </div>
+        </div>
+        <div class="control">
+          <label>Scrollbar Border Radius:</label>
+          <div class="number-input">
+            <button onclick="changeNumber('borderRadius', -1)">-</button>
+            <span id="borderRadius">1</span>
+            <button onclick="changeNumber('borderRadius', 1)">+</button>
+          </div>
+        </div>
+        <div class="control">
+          <label>Thumb Border Width:</label>
+          <div class="number-input">
+            <button onclick="changeNumber('thumbBorderWidth', -1)">-</button>
+            <span id="thumbBorderWidth">0</span>
+            <button onclick="changeNumber('thumbBorderWidth', 1)">+</button>
+          </div>
+        </div>
+        <div class="control">
+          <label>Thumb Border Color:</label>
+          <input type="color" id="thumbBorderColor" value="#000000">
+        </div>
+      </div>
+    </div>
+
+    <div class="preview-container">
+      <div class="preview">
+        <textarea id="scrollPreview"></textarea>
+      </div>
+      <button id="copyBtn" disabled>Copy to Clipboard</button>
+    </div>
+  </div>
+
+  <script>
+    const thumbColorInput = document.getElementById('thumbColor');
+    const trackColorInput = document.getElementById('trackColor');
+    const scrollbarWidthSpan = document.getElementById('scrollbarWidth');
+    const borderRadiusSpan = document.getElementById('borderRadius');
+    const thumbBorderWidthSpan = document.getElementById('thumbBorderWidth');
+    const thumbBorderColorInput = document.getElementById('thumbBorderColor');
+    const previewArea = document.getElementById('scrollPreview');
+    const copyBtn = document.getElementById('copyBtn');
+
+    function updateStyles() {
+      const thumbColor = thumbColorInput.value || '#888888';
+      const trackColor = trackColorInput.value || '#f0f0f0';
+      const scrollbarWidth = scrollbarWidthSpan.textContent + 'px';
+      const borderRadius = borderRadiusSpan.textContent + 'px';
+      const thumbBorderWidth = thumbBorderWidthSpan.textContent + 'px';
+      const thumbBorderColor = thumbBorderColorInput.value || 'transparent';
+
+      const dynamicStyle = `
+textarea::-webkit-scrollbar {
+  width: ${scrollbarWidth};
+}
+textarea::-webkit-scrollbar-track {
+  background: ${trackColor};
+}
+textarea::-webkit-scrollbar-thumb {
+  background: ${thumbColor};
+  border-radius: ${borderRadius};
+  border: ${thumbBorderWidth} solid ${thumbBorderColor};
+}
+textarea::-webkit-scrollbar-thumb:hover {
+  background: ${thumbColor};\n\n\n\n\n
+}`;
+
+      const styleTag = document.getElementById('dynamicStyles');
+      if (!styleTag) {
+        const newStyleTag = document.createElement('style');
+        newStyleTag.id = 'dynamicStyles';
+        document.head.appendChild(newStyleTag);
+      }
+      document.getElementById('dynamicStyles').textContent = dynamicStyle;
+
+      previewArea.value = dynamicStyle;
+
+      copyBtn.disabled = false;
+    }
+
+    function changeNumber(field, delta) {
+      const fieldSpan = document.getElementById(field);
+      let value = parseInt(fieldSpan.textContent, 10);
+      value = Math.max(0, value + delta); // Evita valores negativos
+      fieldSpan.textContent = value;
+      updateStyles();
+    }
+
+    thumbColorInput.addEventListener('input', updateStyles);
+    trackColorInput.addEventListener('input', updateStyles);
+    thumbBorderColorInput.addEventListener('input', updateStyles);
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(previewArea.value).then(() => {
+        alert('CSS code copied to clipboard!');
+      });
+    });
+
+    updateStyles();
+  </script>
+</body>
+</html>
