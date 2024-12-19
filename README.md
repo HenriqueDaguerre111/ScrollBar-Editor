@@ -1,45 +1,54 @@
-Scrollbar Editor
-O Scrollbar Editor é uma ferramenta interativa para criar e personalizar scrollbars com facilidade. Com uma interface moderna e intuitiva, você pode ajustar o estilo de barras de rolagem e visualizar os resultados em tempo real. Ao final, o código CSS gerado pode ser copiado diretamente para uso em seus projetos.
+🖌️ Scrollbar Editor
+O Scrollbar Editor é uma ferramenta intuitiva para criar e personalizar scrollbars com estilos únicos. Veja as alterações em tempo real e copie o código CSS gerado diretamente para seus projetos.
 
-🌐 Link do Projeto
-Acesse o projeto ao vivo: https://scroll-bar-edit.vercel.app/
+🔗 Acesse o projeto aqui!
 
-🛠️ Funcionalidades
-Customização Total:
+🌟 Funcionalidades Principais
+🎨 Customização Completa:
 
-Cor do thumb (barra deslizante).
-Cor do track (trilho da barra).
-Largura da scrollbar.
-Borda arredondada no thumb.
-Espessura e cor da borda do thumb.
-Visualização em Tempo Real:
+Cor do Thumb: Personalize a barra de rolagem.
+Cor do Track: Ajuste o fundo do trilho.
+Largura da Scrollbar: Defina tamanhos variados.
+Bordas Arredondadas: Adicione suavidade ao thumb.
+Espessura e Cor da Borda: Deixe seu design ainda mais refinado.
+⚡ Preview Dinâmico:
 
-Preview dinâmico das alterações diretamente no editor.
-Geração Automática de CSS:
+Visualize as mudanças aplicadas diretamente no painel de preview.
+📝 Geração Automática de CSS:
 
-Código CSS gerado automaticamente com base nos ajustes feitos.
-Exibido no mesmo painel do preview.
-Cópia para Área de Transferência:
+O código CSS é gerado com base nos ajustes feitos.
+📋 Cópia com Um Clique:
 
-Botão para copiar o CSS gerado com um clique.
-🎨 Design
-O projeto possui um design moderno e escuro, com:
+Copie o CSS gerado para a área de transferência.
+🎨 Visual do Projeto
+Dark Mode moderno com elementos refinados para inputs e botões. Confira o design direto no projeto aqui.
 
-Inputs estilizados, incluindo controles de cor elegantes.
-Botões de incremento e decremento (+ e -) para ajustes de valores.
-Layout responsivo, adaptado para diferentes tamanhos de tela.
+📸 Screenshot do Projeto
+
 🚀 Como Usar
-Acesse o projeto pelo link.
-Utilize os controles para ajustar o estilo da scrollbar:
-Selecione cores para o thumb, track e borda.
-Ajuste a largura, borda e arredondamento usando os botões + e -.
-Veja as mudanças refletidas em tempo real no painel de preview.
-Copie o código CSS gerado usando o botão "Copy to Clipboard".
-🧩 Tecnologias Utilizadas
-HTML5: Estrutura semântica.
-CSS3: Estilização moderna e responsiva.
-JavaScript: Interatividade e geração de CSS dinâmico.
-Vercel: Hospedagem e deploy do projeto.
+Acesse o projeto pelo link: https://scroll-bar-edit.vercel.app/.
+Personalize:
+Ajuste as cores, larguras e bordas usando os controles disponíveis.
+Veja as mudanças refletidas no preview.
+Copie o CSS:
+Use o botão "Copy to Clipboard" para obter o código gerado.
+Cole no seu Projeto:
+Utilize o CSS copiado em seus projetos para estilizar scrollbars com facilidade.
+🛠️ Tecnologias Utilizadas
+HTML5: Estrutura semântica e responsiva.
+CSS3: Estilos modernos com foco em dark mode.
+JavaScript: Atualizações dinâmicas e geração de CSS.
+Vercel: Hospedagem e deploy.
+💻 Como Rodar Localmente
+Clone o repositório:
+bash
+Copiar código
+git clone https://github.com/seu-usuario/scrollbar-editor.git
+Acesse a pasta do projeto:
+bash
+Copiar código
+cd scrollbar-editor
+Abra o arquivo index.html no navegador.
 📂 Estrutura do Projeto
 bash
 Copiar código
@@ -48,42 +57,25 @@ scrollbar-editor/
 ├── styles.css    # Estilos do projeto
 ├── script.js     # Lógica e interatividade
 └── README.md     # Documentação do projeto
-💻 Como Rodar Localmente
-Clone este repositório:
-bash
-Copiar código
-git clone https://github.com/seu-usuario/scrollbar-editor.git
-Acesse o diretório do projeto:
-bash
-Copiar código
-cd scrollbar-editor
-Abra o arquivo index.html no navegador.
-📷 Screenshot do Projeto
+🙌 Contribua com o Projeto
+Contribuições são bem-vindas! Siga os passos abaixo para colaborar:
 
-🙌 Contribuição
-Contribuições são bem-vindas! Para contribuir:
-
-Faça um fork deste repositório.
-Crie uma branch para sua feature/ajuste:
+Faça um fork do repositório.
+Crie uma branch para sua feature:
 bash
 Copiar código
 git checkout -b minha-feature
-Commit suas alterações:
+Faça as alterações e commit:
 bash
 Copiar código
 git commit -m "Adiciona nova funcionalidade"
-Envie as alterações:
+Envie para o GitHub:
 bash
 Copiar código
 git push origin minha-feature
-Abra um Pull Request.
-📄 Licença
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Abra um Pull Request e descreva suas alterações.
+📜 Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
 
-🚀 Deploy na Vercel
-O projeto foi hospedado na Vercel. Para fazer deploy de suas alterações:
-
-Faça login na Vercel.
-Conecte o repositório ao painel da Vercel.
-Configure os builds automaticamente para o branch principal.
-💡 Acesse agora e crie scrollbars incríveis: https://scroll-bar-edit.vercel.app/
+💡 Crie scrollbars incríveis agora!
+🔗 Acesse: https://scroll-bar-edit.vercel.app/
